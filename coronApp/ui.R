@@ -1,0 +1,65 @@
+#
+# This is the user-interface definition of a Shiny web application. You can
+# run the application by clicking 'Run App' above.
+#
+# Find out more about building applications with Shiny here:
+#
+#    http://shiny.rstudio.com/
+#
+library(shiny)
+library(shinydashboard)
+library(shinyWidgets)
+library(shinyjs)
+library(rgdal)
+library(rgeos)
+library(stringr)
+library(dplyr)
+library(plotly)
+source("../dataImport.R")
+source("../widgets/toggleSwitch.R")
+
+# Define UI for application that draws a histogram
+ui <- dashboardPage(skin = "blue",
+    dashboardHeader(title = "Wind Atlas"),
+    dashboardSidebar(disable = TRUE),
+    dashboardBody(
+        useShinyjs(),
+        tags$head(
+            includeCSS(path = "../css/style.css")
+        ),
+        fluidRow(
+            column(
+                width = 12,
+                leafletOutput(outputId = "mymap"),
+                
+                switchButton(inputId = "Switch1",
+                             label = "",
+                             value = TRUE, col = "GB", type = "OO"),
+                dropdownButton(
+                    tags$h3("List of Input"),
+                    selectInput("country", "Country:", 
+                                c("None selected", as.character(world$ADMIN))),
+                    prettyCheckbox(
+                        inputId = "total", label = "Country Total",value = TRUE,
+                        status = "success", outline = FALSE, width = "20px"
+                    ),
+                    prettyCheckbox(
+                        inputId = "wspd", label = "Wind Speed",
+                        status = "success", outline = FALSE, width = "20px"
+                    ),
+                    circle = TRUE, status = "primary", icon = icon("gear"), width = "300px",
+                    tooltip = tooltipOptions(title = "Control inputs")
+                )
+                
+            ),
+            # column(
+            #     width = 6,
+            #     DT::dataTableOutput("fileList")
+            # )
+        )
+    )
+)
+# Launch App
+# options(shiny.host = '0.0.0.0')
+# options(shiny.host = '127.0.0.1')
+# options(shiny.port = 7287)
