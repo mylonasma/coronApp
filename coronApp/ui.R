@@ -15,12 +15,12 @@ library(rgeos)
 library(stringr)
 library(dplyr)
 library(plotly)
-source("../dataImport.R")
+# source("../dataImport.R")
 source("../widgets/toggleSwitch.R")
 
 # Define UI for application that draws a histogram
 ui <- dashboardPage(skin = "blue",
-    dashboardHeader(title = "Wind Atlas"),
+    dashboardHeader(title = "CoViD-19",disable = T),
     dashboardSidebar(disable = TRUE),
     dashboardBody(
         useShinyjs(),
@@ -38,7 +38,7 @@ ui <- dashboardPage(skin = "blue",
                 dropdownButton(
                     tags$h3("List of Input"),
                     selectInput("country", "Country:", 
-                                c("None selected", as.character(world$ADMIN))),
+                                c("None selected", as.character(currentState$country))),
                     prettyCheckbox(
                         inputId = "total", label = "Country Total",value = TRUE,
                         status = "success", outline = FALSE, width = "20px"
@@ -49,17 +49,20 @@ ui <- dashboardPage(skin = "blue",
                     ),
                     circle = TRUE, status = "primary", icon = icon("gear"), width = "300px",
                     tooltip = tooltipOptions(title = "Control inputs")
+                ),
+                box(id = "myBox",
+                    infoBoxOutput("casesBox"),infoBoxOutput("deathsBox"),
+                    prettyCheckbox(
+                        inputId = "showGraph", label = "Show History Graph",value = FALSE,
+                        status = "success", outline = FALSE, width = "20px"
+                    )
                 )
                 
-            ),
-            # column(
-            #     width = 6,
-            #     DT::dataTableOutput("fileList")
-            # )
+            )
         )
     )
 )
 # Launch App
-# options(shiny.host = '0.0.0.0')
+# options(shiny.host = '192.168.2.4')
 # options(shiny.host = '127.0.0.1')
 # options(shiny.port = 7287)
