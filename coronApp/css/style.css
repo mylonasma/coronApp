@@ -90,6 +90,7 @@ html, body {
   right: -250px !important;
   animation: move 2s linear 1s forwards;
   width: 200px;
+  height: 45px;
 }
 
 @media all and (max-width:768px){

@@ -164,9 +164,9 @@ shinyServer(function(input, output, session) {
             growth_rate_deaths <- format(diff_deaths/diff_days, digits = 0)
           
             ## you can now 'output' your generated data however you want
-            tbl <- eventReactive(input$total, {
-                rv$myDf
-            })
+            # tbl <- eventReactive(input$total, {
+            #     rv$myDf
+            # })
             observeEvent(input$showGraph,{
                 if(!input$showGraph){
                     print("TRUE")
@@ -176,15 +176,12 @@ shinyServer(function(input, output, session) {
                 }
             })
             output$casesBox <- renderInfoBox({
-                tbl()
-                
                 infoBox(
                     " ", rv$myDf$cases, "Cases", icon = icon("ambulance"),
                     color = "light-blue"
                 )
             })
             output$deathsBox <- renderInfoBox({
-                tbl()
                 infoBox(
                     " ", rv$myDf$deaths, "Deaths", icon = icon("frown"),
                     color = "red"

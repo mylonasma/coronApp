@@ -40,14 +40,6 @@ ui <- dashboardPage(skin = "blue",
                     tags$h3("List of Input"),
                     selectInput("country", "Country:", 
                                 c("None selected", as.character(currentState$country))),
-                    prettyCheckbox(
-                        inputId = "total", label = "Country Total",value = TRUE,
-                        status = "success", outline = FALSE, width = "20px"
-                    ),
-                    prettyCheckbox(
-                        inputId = "wspd", label = "Wind Speed",
-                        status = "success", outline = FALSE, width = "20px"
-                    ),
                     circle = TRUE, status = "primary", icon = icon("gear"), width = "300px",
                     tooltip = tooltipOptions(title = "Control inputs")
                 ),
