@@ -10,6 +10,7 @@ world <- SpatialPolygonsDataFrame(world_shp, data = worldSlow@data)
 
 data <- read.csv("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv")
 data <- data[!(data$countriesAndTerritories == "Cases_on_an_international_conveyance_Japan"),]
+dateUpdate <- as.character(data$dateRep[1])
 data$countriesAndTerritories <- gsub("_", " ", data$countriesAndTerritories)
 dataCountries <- (data %>% distinct(data$countriesAndTerritories, .keep_all = T))$countriesAndTerritories
 fatalRate = new(Class = "array")

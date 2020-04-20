@@ -11,7 +11,9 @@ library(shiny)
 library(leaflet)
 # Define server logic required to draw a histogram
 shinyServer(function(input, output, session) {
-    
+    observe({
+        showNotification(paste("Last Updated: ",dateUpdate),duration = 0, type = "message")
+    }) 
     shinyjs::hide(id = "myBox")
     shinyjs::hide(id = "myPlot")
     ## use reactive values to store the data you generate from observing the shape click

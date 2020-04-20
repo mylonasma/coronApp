@@ -85,6 +85,13 @@ html, body {
   color: peru;
 }
 
+#shiny-notification-panel {
+  top: 210px !important;
+  right: -250px !important;
+  animation: move 2s linear 1s forwards;
+  width: 200px;
+}
+
 @media all and (max-width:768px){
 /* for mobile */
 #mymap {
@@ -253,4 +260,22 @@ left: 156px !important;
     position: absolute;
     left: 20px !important;
     top: 65px !important;    
+}
+
+@keyframes fadeIn {
+  99% {
+    visibility: hidden;
+  }
+  100% {
+    visibility: visible;
+  }
+}
+
+@-webkit-keyframes move {
+  from {
+    right: -250px;
+  }
+  to {
+    right: 0;
+  }
 }
