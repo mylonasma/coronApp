@@ -1,0 +1,10 @@
+name: coronapp
+title:
+username:
+account: madmin
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2143083
+bundleId: 3036274
+url: https://madmin.shinyapps.io/coronapp/
+when: 1587341248.9174

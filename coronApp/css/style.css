@@ -1,0 +1,256 @@
+/* body */
+body {
+    padding: 0;
+    margin: 0;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+}
+#mymap {
+  position: fixed;
+  height: calc(100vh) !important;
+}
+
+.box {
+  border-top: 0px !important;
+}
+
+.box > #myBox {
+  background-color: rgba(191,198,200, 0.3);
+  position: fixed !important;
+  width: 20% !important;
+  bottom: 0 !important;
+  border-top: 0px !important;
+  width: 40% !important;
+}
+
+.box > #myPlot {
+  background-color: rgba(191,198,200, 0.3);
+  position: fixed !important;
+  width: 20% !important;
+  bottom: 0 !important;
+  border-top: 0px !important;
+  width: 40% !important;
+  left: 41% !important;
+}
+
+.info-box {
+  background: none !important;
+  min-height: 0px !important;
+  box-shadow: none !important;
+}
+.info-box-text {
+  overflow: visible !important;
+}
+#casesBox {
+  width: 100% !important;
+}
+#deathsBox {
+  width: 100% !important;
+}
+#growthBox {
+  left: 216px !important;
+  bottom: 25px;
+  position: fixed;
+  width: 140px;
+}
+#growthBoxDeaths {
+  left: 338px !important;
+  bottom: 25px;
+  position: fixed;
+  width: 140px;
+}
+#fatalRate {
+  left: 216px !important;
+  bottom: 115px;
+  position: fixed;
+  width: 140px;
+}
+#growthBox > div {
+  height: 90px !important;
+}
+#growthBoxDeaths > div {
+  height: 90px !important;
+}
+#fatalRate > div {
+  height: 90px !important;
+}
+#plot1 {
+  height: 200px !important;
+}
+#countryTitle {
+  font-size: 38px;
+  font-weight: 700;
+  color: peru;
+}
+
+@media all and (max-width:768px){
+/* for mobile */
+#mymap {
+  position: fixed;
+  height: calc(100vh) !important;}
+.col-sm-12 {
+  padding-top: 0.02px !important;
+}
+.leaflet-bottom {
+  position: fixed;
+}
+
+.box > #myBox {
+  background-color: rgba(191,198,200, 0.6);
+  position: fixed !important;
+  width: 98% !important;
+  margin-right: 1% !important;
+  margin-left: 1% !important;
+  bottom: 0 !important;
+  left: 0px !important;
+  border-top: 0px !important;
+}
+
+.box > #myPlot {
+  background-color: rgba(191,198,200, 0.6);
+  position: fixed !important;
+  width: 98% !important;
+  margin-right: 1% !important;
+  margin-left: 1% !important;
+  bottom: 40px !important;
+  left: 0px !important;
+  border-top: 0px !important;
+}
+
+.info-box {
+  background: none !important;
+  min-height: 0px !important;
+  box-shadow: none !important;
+}
+.info-box-text {
+  overflow: visible !important;
+}
+#casesBox {
+  width: 100% !important;
+  position: relative;
+  left: 0;
+  display: inline;
+}
+#deathsBox {
+  width: 100% !important;
+  position: relative;
+  left: 0;
+  display: inline;
+}
+#growthBox {
+left: 156px !important;
+    bottom: 35px;
+    position: absolute;
+    width: 140px;
+}
+#growthBoxDeaths {
+left: 156px !important;
+    bottom: 136px;
+    position: absolute;
+    width: 140px;
+}
+#fatalRate{
+  left: 271px !important;
+    bottom: 92px;
+    position: absolute;
+    width: 148px;
+}
+#growthBox > div {
+  height: 90px !important;
+}
+#growthBoxDeaths > div {
+  height: 90px !important;
+}
+#fatalRate > div {
+  height: 90px !important;
+}
+
+}
+
+
+.content{
+  padding: 0 !important;
+  padding-left: 0 !important;
+  padding-bottom: 0 !important;
+  
+}
+
+.content-wrapper, .right-side {
+  background-color: #fcfafa;
+}
+.skin-blue .main-header .logo {
+  background-color: #a4b1b6;
+  opacity:0.5;
+}
+.skin-blue .main-header .logo:hover {
+  background-color: #a4b1b6;
+}
+.skin-blue .main-header .navbar {
+  background-color: #a4b1b6;
+  opacity:0.5;
+}
+.skin-blue .main-header  {
+  background-color: #a4b1b6;
+  opacity:0.5;
+}
+        
+.onoffswitch {
+  position: relative; width: 90px;
+  -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+}
+.onoffswitch-checkbox {
+  display: none;
+}
+.onoffswitch-label {
+  display: block; overflow: hidden; cursor: pointer;
+  border: 0px solid #999999; border-radius: 20px;
+}
+.onoffswitch-inner {
+  display: block; width: 200%; margin-left: -100%;
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+  display: block; float: left; width: 50%; height: 28px; padding: 0; line-height: 30px;
+  font-size: 12px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+  box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+  content: "Cases";
+  padding-left: 10px;
+  background-color: #6d8691; color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+  content: "Deaths";
+  padding-right: 10px;
+  background-color: #da4949; color: #FFFFFF;
+  text-align: right;
+}
+.onoffswitch-switch {
+  display: block; width: 18px; margin: 6px;
+  background: #FFFFFF;
+  position: absolute; top: 0; bottom: 0;
+  right: 56px;
+  border: 0px solid #999999; border-radius: 20px;
+  transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px; 
+}
+
+.dropup,
+.dropdown {
+    position: absolute !important;
+    left: 20px !important;
+    top: 128px !important;
+}
+
+.GreyBlue {
+    position: absolute;
+    left: 20px !important;
+    top: 65px !important;    
+}

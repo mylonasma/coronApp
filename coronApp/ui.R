@@ -10,13 +10,14 @@ library(shiny)
 library(shinydashboard)
 library(shinyWidgets)
 library(shinyjs)
+library(leaflet)
 library(rgdal)
 library(rgeos)
 library(stringr)
 library(dplyr)
 library(plotly)
-# source("../dataImport.R")
-source("../widgets/toggleSwitch.R")
+source("dataImport.R")
+source("widgets/toggleSwitch.R")
 
 # Define UI for application that draws a histogram
 ui <- dashboardPage(skin = "blue",
@@ -25,7 +26,7 @@ ui <- dashboardPage(skin = "blue",
     dashboardBody(
         useShinyjs(),
         tags$head(
-            includeCSS(path = "../css/style.css")
+            includeCSS(path = "css/style.css")
         ),
         fluidRow(
             column(
@@ -51,11 +52,17 @@ ui <- dashboardPage(skin = "blue",
                     tooltip = tooltipOptions(title = "Control inputs")
                 ),
                 box(id = "myBox",
+                    titlePanel(textOutput('countryTitle')),
                     infoBoxOutput("casesBox"),infoBoxOutput("deathsBox"),
+                    valueBoxOutput("growthBox"),valueBoxOutput("growthBoxDeaths"),
+                    valueBoxOutput("fatalRate"),
                     prettyCheckbox(
                         inputId = "showGraph", label = "Show History Graph",value = FALSE,
                         status = "success", outline = FALSE, width = "20px"
                     )
+                ),
+                box(id = "myPlot",
+                    plotlyOutput("plot1")
                 )
                 
             )
