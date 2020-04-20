@@ -67,6 +67,18 @@ html, body {
   position: fixed;
   width: 140px;
 }
+#trend {
+  left: 338px !important;
+  bottom: 115px;
+  position: fixed;
+  width: 85px !important;
+}
+#trendDeaths {
+  left: 393px !important;
+  bottom: 115px;
+  position: fixed;
+  width: 85px !important;
+}
 #growthBox > div {
   height: 90px !important;
 }
@@ -74,6 +86,12 @@ html, body {
   height: 90px !important;
 }
 #fatalRate > div {
+  height: 90px !important;
+}
+#trend > div {
+  height: 90px !important;
+}
+#trendDeaths > div {
   height: 90px !important;
 }
 #plot1 {
@@ -161,9 +179,21 @@ left: 156px !important;
 }
 #fatalRate{
   left: 271px !important;
-    bottom: 92px;
+    bottom: 35px;
     position: absolute;
     width: 148px;
+}
+#trend{
+  left: 271px !important;
+    bottom: 136px;
+    position: absolute;
+    width: 86px;
+}
+#trendDeaths{
+  left: 333px !important;
+    bottom: 136px;
+    position: absolute;
+    width: 86px;
 }
 #growthBox > div {
   height: 90px !important;
@@ -174,7 +204,12 @@ left: 156px !important;
 #fatalRate > div {
   height: 90px !important;
 }
-
+#trend > div {
+  height: 90px !important;
+}
+#trendDeaths > div {
+  height: 90px !important;
+}
 }
 
 

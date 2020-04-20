@@ -162,7 +162,8 @@ shinyServer(function(input, output, session) {
             diff_days <- length(casePlot$sumCases) - which(casePlot$sumCases != 0)[1]
             growth_rate <- format(diff_cases/diff_days, digits = 0)
             growth_rate_deaths <- format(diff_deaths/diff_days, digits = 0)
-          
+            trendSign <- (mean(diff(data[data$countriesAndTerritories == input$country, "cases"][1:14]))/as.numeric(growth_rate))*100
+            trendDeathsSign <- (mean(diff(data[data$countriesAndTerritories == input$country, "deaths"][1:14]))/as.numeric(growth_rate_deaths))*100
             ## you can now 'output' your generated data however you want
             # tbl <- eventReactive(input$total, {
             #     rv$myDf
@@ -195,7 +196,33 @@ shinyServer(function(input, output, session) {
             })   
             output$fatalRate <- renderValueBox({
                 valueBox(paste(currentState$fatalRate[match(input$country, currentState$country)],"%", sep = ""), "Fatal Rate",color = "orange")
-            })  
+            }) 
+            output$trend <- renderValueBox({
+                if(!is.na(trendSign)){
+                    if(trendSign>=5){
+                        valueBox(icon("arrow-alt-circle-down", "fa-1x") , "cases",color = "green")
+                    }else if(trendSign<=-5){
+                        valueBox(icon("arrow-alt-circle-up", "fa-1x") , "cases",color = "red")
+                    }else{
+                        valueBox(icon("equals", "fa-1x") , "cases",color = "blue")
+                    }
+                }else{
+                    valueBox(icon("ban", "fa-1x") , "cases",color = "black")
+                }
+            })
+            output$trendDeaths <- renderValueBox({
+                if(!is.na(trendDeathsSign)){
+                    if(trendDeathsSign>=5){
+                        valueBox(icon("arrow-alt-circle-down", "fa-1x") , "deaths",color = "green")
+                    }else if(trendDeathsSign<=-5){
+                        valueBox(icon("arrow-alt-circle-up", "fa-1x") , "deaths",color = "red")
+                    }else{
+                        valueBox(icon("equals", "fa-1x") , "deaths",color = "blue")
+                    }
+                }else{
+                    valueBox(icon("ban", "fa-1x") , "deaths",color = "black")
+                }
+            })            
             output$countryTitle <- renderText({ input$country })
             ## plot
             output$plot1 <- renderPlotly({

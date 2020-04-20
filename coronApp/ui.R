@@ -47,7 +47,7 @@ ui <- dashboardPage(skin = "blue",
                     titlePanel(textOutput('countryTitle')),
                     infoBoxOutput("casesBox"),infoBoxOutput("deathsBox"),
                     valueBoxOutput("growthBox"),valueBoxOutput("growthBoxDeaths"),
-                    valueBoxOutput("fatalRate"),
+                    valueBoxOutput("fatalRate"),valueBoxOutput("trend"),valueBoxOutput("trendDeaths"),
                     prettyCheckbox(
                         inputId = "showGraph", label = "Show History Graph",value = FALSE,
                         status = "success", outline = FALSE, width = "20px"
